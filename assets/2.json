@@ -1,0 +1,19 @@
+{
+    "name": "CLINT",
+    "symbol": "CLI",
+    "image": "2.png",
+    "properties": {
+        "files": [
+            {
+                "uri": "2.png",
+                "type": "image/png"
+            }
+        ],
+        "creators": [
+            {
+                "address": "31Fp48ERMF1GanobKxZKcHvRj6RWNLYwqT5aRAbo1UUz",
+                "share": 100
+            }
+        ]
+    }
+}

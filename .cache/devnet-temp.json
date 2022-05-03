@@ -1,0 +1,32 @@
+{
+    "program": {
+        "uuid": "9FdmoY",
+        "candyMachine": "9FdmoYer7tsddpFGJFHKPtJnhzwUqiCsHi2yqrHzSJKg",
+        "collection": "3mkzRH8kRaWAV4cp4Db36pjmk79cGpBwpGzjhs6CC6Qp"
+    },
+    "items": {
+        "0": {
+            "link": "https://arweave.net/8Hdzrtkmif8Eq-PqnYul0vlkn2xJGJPpZJhcBvPN8fw",
+            "imageLink": "https://arweave.net/T0RXB_SAkcAmEaJYGscTdRg2jk0PRUd_AR3jjnLTBy0?ext=png",
+            "name": "anyan",
+            "onChain": true,
+            "verifyRun": true
+        },
+        "1": {
+            "link": "https://arweave.net/QjJXPE5fBRfZYZ6rIdbyAn69XoAveN21glegtjKS6e4",
+            "imageLink": "https://arweave.net/8FNKCBtgDlio5JQkLYeXzRwhS-6FDDRmiTxPsdhFXFg?ext=png",
+            "name": "warren",
+            "onChain": true,
+            "verifyRun": true
+        },
+        "2": {
+            "link": "https://arweave.net/IhjUzBKOtwzZMSCL_egaFTzrnIFW9Swrb-Fu5h2CQXM",
+            "imageLink": "https://arweave.net/RV-R9vKFiIHjJ1qqpc-Hjyr_3VS6yPfZTsfte0XRZFM?ext=png",
+            "name": "CLINT",
+            "onChain": true,
+            "verifyRun": true
+        }
+    },
+    "env": "devnet",
+    "cacheName": "temp"
+}

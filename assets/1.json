@@ -1,0 +1,19 @@
+{
+    "name": "warren",
+    "symbol": "WAR",
+    "image": "1.png",
+    "properties": {
+        "files": [
+            {
+                "uri": "1.png",
+                "type": "image/png"
+            }
+        ],
+        "creators": [
+            {
+                "address": "31Fp48ERMF1GanobKxZKcHvRj6RWNLYwqT5aRAbo1UUz",
+                "share": 100
+            }
+        ]
+    }
+}

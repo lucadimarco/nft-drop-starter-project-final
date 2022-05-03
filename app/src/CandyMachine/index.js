@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Connection, PublicKey } from '@solana/web3.js';
 import { Program, Provider, web3 } from '@project-serum/anchor';
 import { MintLayout, TOKEN_PROGRAM_ID, Token } from '@solana/spl-token';
@@ -20,6 +20,52 @@ const opts = {
 };
 
 const CandyMachine = ({ walletAddress }) => {
+
+  useEffect(() => {
+    getCandyMachineState();
+  },[]);
+
+  const [candyMachine, setCandyMachine] = useState(null)
+
+  const getProvider = () => {
+    const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST;
+    const connection = new Connection(rpcHost);
+    const provider = new Provider(
+      connection,
+      window.solana,
+      opts.preflightCommitment
+    )
+    return provider;
+  }
+
+  const getCandyMachineState = async() => {
+    const provider = getProvider();
+    const idl = await Program.fetchIdl(candyMachineProgram,provider);
+    const program = new Program(idl, candyMachineProgram, provider);
+    const candyMachine = await program.account.candyMachine.fetch(
+      process.env.REACT_APP_CANDY_MACHINE_ID
+    );
+    const itemsAvailable = candyMachine.data.itemsAvailable.toNumber()
+    const itemsRedeemed = candyMachine.itemsRedeemed.toNumber()
+    const itemsRemaining = itemsAvailable - itemsRedeemed
+    const goLiveDate = candyMachine.data.goLiveDate.toNumber()
+    const presale = candyMachine.data.whitelistMintSettings && 
+                    candyMachine.data.whitelistMintSettings.presale && 
+                    (!candyMachine.data.goLiveDate || 
+                      candyMachine.data.goLiveDate.toNumber() >
+                      new Date().getTime() / 1000);
+    const goLiveDateTimeString = `${new Date(
+                                    goLiveDate * 1000
+                                  ).toGMTString()}`;
+     setCandyMachine(candyMachine);
+     console.log({
+       itemsAvailable,
+       itemsRedeemed,
+       itemsRemaining,
+       goLiveDate,
+       goLiveDateTimeString
+     })
+  }
 
   const getCandyMachineCreator = async (candyMachine) => {
     const candyMachineID = new PublicKey(candyMachine);
